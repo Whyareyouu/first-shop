@@ -1,7 +1,22 @@
 .wrapper {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+.header {
+	grid-area: header;
+}
+.navbar {
+	grid-area: navbar;
+}
+.main {
+	grid-area: main;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	align-content: center;
-	justify-content: start;
-	gap: 20px;
+}
+.footer {
+	grid-area: footer;
 }
