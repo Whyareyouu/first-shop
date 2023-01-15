@@ -1,0 +1,15 @@
+.Navbar {
+	display: flex;
+	gap: 20px;
+	list-style: none;
+}
+.category {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.icon svg {
+	width: 90px;
+	height: 82px;
+}
