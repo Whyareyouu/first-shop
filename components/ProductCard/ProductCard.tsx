@@ -4,6 +4,7 @@ import styles from './ProductCard.module.css';
 import AddIcon from './Plus.svg';
 import FavoriteIcon from './Favorite.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const ProductCard = ({
 	image,
@@ -23,7 +24,9 @@ export const ProductCard = ({
 				width={331}
 				height={290}
 			/>
-			<h3 className={styles.title}>{title}</h3>
+			<Link href={`/product/${title}`}>
+				<h3 className={styles.title}>{title}</h3>
+			</Link>
 			<div className={styles.category}>Category: {category}</div>
 			<div className={styles.description}>{description}</div>
 			<div className={styles.priceWrapper}>

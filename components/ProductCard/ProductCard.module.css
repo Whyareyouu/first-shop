@@ -11,6 +11,10 @@
 	line-height: 32px;
 	color: var(--black);
 }
+.title:hover {
+	cursor: pointer;
+	color: var(--orange);
+}
 .category {
 	font-style: normal;
 	font-weight: 500;

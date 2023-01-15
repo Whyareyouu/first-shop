@@ -1,11 +1,7 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
-import { ProductsModel } from '../interfaces/product.interface';
-import axios from 'axios';
-import { ProductCard } from '../components';
 import { withLayout } from '../layouts/Layout';
 
-function Home({ products }: HomeProps): JSX.Element {
+function Home(): JSX.Element {
 	return (
 		<>
 			<Head>
@@ -20,32 +16,7 @@ function Home({ products }: HomeProps): JSX.Element {
 					href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'
 				/>
 			</Head>
-			{products &&
-				products.map((product) => (
-					<ProductCard
-						key={product.id}
-						title={product.title}
-						price={product.price}
-						description={product.description}
-						image={product.image}
-						category={product.category}
-					/>
-				))}
+			<h1>Index page</h1>
 		</>
 	);
-}
-export default withLayout(Home);
-export const getStaticProps: GetStaticProps = async () => {
-	const { data: products } = await axios.get<ProductsModel[]>(
-		'https://fakestoreapi.com/products'
-	);
-	return {
-		props: {
-			products,
-		},
-	};
-};
-
-interface HomeProps extends Record<string, unknown> {
-	products: ProductsModel[];
 }
