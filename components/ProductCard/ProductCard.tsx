@@ -24,9 +24,7 @@ export const ProductCard = ({
 				width={331}
 				height={290}
 			/>
-			<Link href={`/product/${title}`}>
-				<h3 className={styles.title}>{title}</h3>
-			</Link>
+			<h3 className={styles.title}>{title}</h3>
 			<div className={styles.category}>Category: {category}</div>
 			<div className={styles.description}>{description}</div>
 			<div className={styles.priceWrapper}>

@@ -1,7 +1,12 @@
+import axios from 'axios';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+import { ProductCard } from '../components';
+import { ProductsModel } from '../interfaces/product.interface';
 import { withLayout } from '../layouts/Layout';
 
-function Home(): JSX.Element {
+function Home({ products }: ProductProps): JSX.Element {
 	return (
 		<>
 			<Head>
@@ -11,12 +16,34 @@ function Home(): JSX.Element {
 				<link rel='icon' href='/favicon.ico' />
 				<link rel='preconnect' href='https://fonts.googleapis.com' />
 				<link rel='preconnect' href='https://fonts.gstatic.com' />
-				<link
-					rel='stylesheet'
-					href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'
-				/>
 			</Head>
-			<h1>Index page</h1>
+			{products &&
+				products.map((product) => (
+					<Link href={`/product/${product.id}`} key={product.id}>
+						<ProductCard
+							title={product.title}
+							price={product.price}
+							description={product.description}
+							image={product.image}
+							category={product.category}
+						/>
+					</Link>
+				))}
 		</>
 	);
+}
+export default withLayout(Home);
+export const getStaticProps: GetStaticProps = async () => {
+	const { data: products } = await axios.get<ProductsModel[]>(
+		'https://fakestoreapi.com/products'
+	);
+	return {
+		props: {
+			products,
+		},
+	};
+};
+
+interface ProductProps extends Record<string, unknown> {
+	products: ProductsModel[];
 }
