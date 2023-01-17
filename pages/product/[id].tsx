@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { ProductModel } from '../../helpers/Product.type';
 import { ProductsModel } from '../../interfaces/product.interface';
 import { ProductPageComponent } from '../../page-components';
 
-const Product = (product: ProductProps): JSX.Element => {
+const Product = (product: ProductModel): JSX.Element => {
 	return <ProductPageComponent product={product} />;
 };
 export default Product;
@@ -26,13 +27,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		};
 	}
 	const id = params.id;
-	const { data: product } = await axios.get<ProductsModel[]>(
+	const { data: product } = await axios.get<ProductModel>(
 		`https://fakestoreapi.com/products/${id}`
 	);
 	return {
-		props: { product },
+		props: product,
 	};
 };
-interface ProductProps extends Record<string, unknown> {
-	products: ProductsModel[];
-}

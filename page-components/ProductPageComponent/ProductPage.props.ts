@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { ProductsModel } from '../../interfaces/product.interface';
+import { ProductModel } from '../../helpers/Product.type';
 export interface ProductPageProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	product: ProductsModel;
+	product: ProductModel;
 }

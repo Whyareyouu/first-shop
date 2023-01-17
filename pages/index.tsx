@@ -19,15 +19,15 @@ function Home({ products }: ProductProps): JSX.Element {
 			</Head>
 			{products &&
 				products.map((product) => (
-					<Link href={`/product/${product.id}`} key={product.id}>
-						<ProductCard
-							title={product.title}
-							price={product.price}
-							description={product.description}
-							image={product.image}
-							category={product.category}
-						/>
-					</Link>
+					<ProductCard
+						key={product.id}
+						id={product.id.toString()}
+						title={product.title}
+						price={product.price}
+						description={product.description}
+						image={product.image}
+						category={product.category}
+					/>
 				))}
 		</>
 	);

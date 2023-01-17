@@ -7,4 +7,5 @@ export interface ProductCardProps
 	description: string;
 	price: string;
 	category: string;
+	id: string;
 }

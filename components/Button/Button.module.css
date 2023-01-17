@@ -1,0 +1,10 @@
+.icon {
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.icon:hover rect {
+	fill: var(--green);
+}
+.icon:hover path {
+	fill: var(--white);
+}

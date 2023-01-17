@@ -1,0 +1,11 @@
+.icon {
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.icon:hover rect {
+	fill: var(--orange);
+	fill-opacity: 1;
+}
+.icon:hover path {
+	fill: var(--white);
+}

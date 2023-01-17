@@ -1,2 +1,3 @@
 export * from './ProductCard/ProductCard';
-export * from './SortCategory/SortCategory';
+export * from './Button/Button';
+export * from './Favorite/Favorite';
