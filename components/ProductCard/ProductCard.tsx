@@ -4,7 +4,6 @@ import styles from './ProductCard.module.css';
 import AddIcon from './Plus.svg';
 import FavoriteIcon from './Favorite.svg';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export const ProductCard = ({
 	image,

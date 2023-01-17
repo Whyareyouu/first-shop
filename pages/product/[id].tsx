@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ProductsModel } from '../../interfaces/product.interface';
+import { ProductPageComponent } from '../../page-components';
 
-const Product = (products: ProductProps): JSX.Element => {
-	return <h1>some text</h1>;
+const Product = (product: ProductProps): JSX.Element => {
+	return <ProductPageComponent product={product} />;
 };
 export default Product;
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -13,21 +14,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = products.map((product) => {
 		return `/product/${product.id}`;
 	});
-	console.log(paths);
 	return {
 		paths,
 		fallback: false,
 	};
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	if (params) {
-		const id = params.id;
+	if (!params) {
+		return {
+			notFound: true,
+		};
 	}
-	const { data: products } = await axios.get<ProductsModel[]>(
-		'https://fakestoreapi.com/products'
+	const id = params.id;
+	const { data: product } = await axios.get<ProductsModel[]>(
+		`https://fakestoreapi.com/products/${id}`
 	);
 	return {
-		props: { products },
+		props: { product },
 	};
 };
 interface ProductProps extends Record<string, unknown> {
