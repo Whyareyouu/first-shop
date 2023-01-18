@@ -1,15 +1,30 @@
 .Navbar {
 	display: flex;
+	flex-direction: column;
 	gap: 20px;
 	list-style: none;
+	color: var(--light-gray);
+	font-size: 20px;
+}
+.logo svg {
+	width: 300px;
+	height: 200px;
+}
+.title {
+	font-size: 32px;
+	margin-bottom: 30px;
 }
 .category {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	gap: 10px;
+}
+.category:hover {
+	cursor: pointer;
+	color: var(--orange);
 }
 .icon svg {
-	width: 90px;
-	height: 82px;
+	width: 50px;
+	height: 42px;
+	fill: var(--white);
 }

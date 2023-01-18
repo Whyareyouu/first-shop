@@ -2,7 +2,7 @@
 	font-weight: 700;
 	font-size: 32px;
 	line-height: 32px;
-	color: #c7c7c7;
+	color: var(--light-gray);
 }
 .currency {
 	font-weight: 700;

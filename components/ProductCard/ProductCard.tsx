@@ -20,7 +20,7 @@ export const ProductCard = ({
 	const IMAGE_PATH = image.replaceAll('https://fakestoreapi.com', '');
 	return (
 		<div className={cn(className, styles.card)} {...props}>
-			<Link href={`/product/${id}`}>
+			<Link href={`/product/${id}`} className={styles.link}>
 				<Image
 					src={process.env.NEXT_PUBLIC_DOMAIN + IMAGE_PATH}
 					alt={title}
