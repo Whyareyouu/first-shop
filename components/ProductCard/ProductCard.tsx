@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '../Button/Button';
 import Link from 'next/link';
 import { Favorite } from '../Favorite/Favorite';
+import { Price } from '../Price/Price';
 
 export const ProductCard = ({
 	image,
@@ -23,17 +24,16 @@ export const ProductCard = ({
 				<Image
 					src={process.env.NEXT_PUBLIC_DOMAIN + IMAGE_PATH}
 					alt={title}
-					width={331}
-					height={290}
+					width={224}
+					height={236}
+					className={styles.image}
 				/>
 				<h3 className={styles.title}>{title}</h3>
 				<div className={styles.category}>Category: {category}</div>
-				<div className={styles.description}>{description}</div>
+				{/* <div className={styles.description}>{description}</div> */}
 			</Link>
 			<div className={styles.priceWrapper}>
-				<div className={styles.price}>
-					{price} <span className={styles.currency}>$</span>
-				</div>
+				<Price price={price} />
 				<div className={styles.icons}>
 					<Favorite icon='true' />
 					<Button icon='true' />

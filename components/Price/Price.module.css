@@ -1,0 +1,12 @@
+.price {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 32px;
+	color: #c7c7c7;
+}
+.currency {
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 31px;
+	color: var(--gray);
+}

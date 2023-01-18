@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import { ProductCard } from '../components';
 import { ProductsModel } from '../interfaces/product.interface';
 import { withLayout } from '../layouts/Layout';
