@@ -1,0 +1,25 @@
+.header {
+	display: grid;
+	grid-template-columns: auto 48px minmax(48px, 100px) 60px 100px;
+	grid-template-areas: 'input favorite bag avatar .';
+	justify-items: center;
+	align-items: center;
+	gap: 20px;
+}
+.input {
+	grid-area: input;
+	width: 100%;
+}
+.favorite {
+	grid-area: favorite;
+}
+.bag {
+	grid-area: bag;
+}
+.avatar {
+	grid-area: avatar;
+	height: 44px;
+	width: 44px;
+	border-left: 1px solid var(--gray);
+	padding-left: 20px;
+}

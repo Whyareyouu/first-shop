@@ -1,0 +1,29 @@
+.bag {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.icon {
+	fill: var(--orange);
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+.icon:hover rect {
+	fill: var(--orange);
+	fill-opacity: 1;
+}
+.icon:hover path {
+	stroke: var(--white);
+}
+
+.counter {
+	display: none;
+	color: var(--white);
+	margin-left: 10px;
+	font-size: 18px;
+}
+.visible {
+	display: inline-block;
+}

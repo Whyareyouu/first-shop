@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-export interface FavoriteProps
+export interface BagProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	icon: 'true' | 'false';
+	counter?: number;
 }
