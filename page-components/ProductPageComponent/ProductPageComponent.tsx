@@ -1,4 +1,4 @@
-import style from './ProductPage.module.css';
+import styles from './ProductPage.module.css';
 import cn from 'classnames';
 import { ProductPageProps } from './ProductPage.props';
 import Image from 'next/image';
@@ -11,8 +11,8 @@ export const ProductPageComponent = ({
 	const { image, title, price, description, rating } = product;
 	const IMAGE_PATH = image.replaceAll('https://fakestoreapi.com', '');
 	return (
-		<div className={cn(className, style.ProductPage)} {...props}>
-			<h1>{title}</h1>
+		<div className={cn(className, styles.ProductPage)} {...props}>
+			<h1 className={styles.title}>{title}</h1>
 			<div>
 				<Image
 					src={process.env.NEXT_PUBLIC_DOMAIN + IMAGE_PATH}

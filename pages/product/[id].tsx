@@ -2,12 +2,13 @@ import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ProductModel } from '../../helpers/Product.type';
 import { ProductsModel } from '../../interfaces/product.interface';
+import { withLayout } from '../../layouts/Layout';
 import { ProductPageComponent } from '../../page-components';
 
 const Product = (product: ProductModel): JSX.Element => {
 	return <ProductPageComponent product={product} />;
 };
-export default Product;
+export default withLayout(Product);
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { data: products } = await axios.get<ProductsModel[]>(
 		'https://fakestoreapi.com/products'
