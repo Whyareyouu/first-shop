@@ -13,20 +13,23 @@ export const ProductPageComponent = ({
 	return (
 		<div className={cn(className, styles.ProductPage)} {...props}>
 			<h1 className={styles.title}>{title}</h1>
-			<div>
+			<div className={styles.product}>
 				<Image
 					src={process.env.NEXT_PUBLIC_DOMAIN + IMAGE_PATH}
 					alt={title}
 					width={500}
 					height={500}
 				/>
-				<p>{description}</p>
+				<p className={styles.description}>{description}</p>
 			</div>
-			<div>
-				<Button icon='true' />
-				<Favorite icon='true' />
-				<span>{rating.rate}</span>
+			<div className={styles.cart}>
+				<h2>Add to cart</h2>
+				<span>Rating :{rating.rate}</span>
 				<Price price={price} />
+				<div className={styles.buttons}>
+					<Favorite icon='true' />
+					<Button icon='true' />
+				</div>
 			</div>
 		</div>
 	);

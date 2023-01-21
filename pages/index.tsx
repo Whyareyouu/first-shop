@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { ProductCard } from '../components';
+import { AllProducts, ProductCard } from '../components';
 import { ProductsModel } from '../interfaces/product.interface';
 import { withLayout } from '../layouts/Layout';
 
@@ -16,18 +16,7 @@ function Home({ products }: ProductProps): JSX.Element {
 				<link rel='preconnect' href='https://fonts.googleapis.com' />
 				<link rel='preconnect' href='https://fonts.gstatic.com' />
 			</Head>
-			{products &&
-				products.map((product) => (
-					<ProductCard
-						key={product.id}
-						id={product.id.toString()}
-						title={product.title}
-						price={product.price}
-						description={product.description}
-						image={product.image}
-						category={product.category}
-					/>
-				))}
+			<AllProducts products={products} />
 		</>
 	);
 }
