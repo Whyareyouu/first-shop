@@ -1,11 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { ProductsModel } from '../../interfaces/product.interface';
 
 export interface ProductCardProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	title: string;
-	image: string;
-	description: string;
-	price: string;
-	category: string;
-	id: string;
+	product: ProductsModel;
 }

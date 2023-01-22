@@ -14,7 +14,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		'https://fakestoreapi.com/products'
 	);
 	const paths = products.map((product) => {
-		// return `/product/${product.id}`;
 		return {
 			params: { id: `${product.id}` },
 		};

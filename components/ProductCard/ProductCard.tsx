@@ -6,17 +6,15 @@ import { Button } from '../Button/Button';
 import Link from 'next/link';
 import { Favorite } from '../Favorite/Favorite';
 import { Price } from '../Price/Price';
+import { useActions } from '../../hooks/useActions';
 
 export const ProductCard = ({
-	image,
-	description,
-	title,
-	price,
-	category,
+	product,
 	className,
-	id,
 	...props
 }: ProductCardProps): JSX.Element => {
+	const { image, title, price, category, id } = product;
+	const { addProduct } = useActions();
 	const IMAGE_PATH = image.replaceAll('https://fakestoreapi.com', '');
 	return (
 		<div className={cn(className, styles.card)} {...props}>
@@ -36,7 +34,7 @@ export const ProductCard = ({
 				<Price price={price} />
 				<div className={styles.icons}>
 					<Favorite icon='true' />
-					<Button icon='true' />
+					<Button icon='true' onClick={() => addProduct(product)} />
 				</div>
 			</div>
 		</div>

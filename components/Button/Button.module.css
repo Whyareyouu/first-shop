@@ -8,3 +8,7 @@
 .icon:hover path {
 	fill: var(--white);
 }
+.button {
+	background: none;
+	border: none;
+}

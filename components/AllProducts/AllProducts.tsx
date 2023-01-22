@@ -11,15 +11,7 @@ export const AllProducts = ({
 		<div className={cn(styles.products, className)} {...props}>
 			{products &&
 				products.map((product) => (
-					<ProductCard
-						key={product.id}
-						id={product.id.toString()}
-						title={product.title}
-						price={product.price}
-						description={product.description}
-						image={product.image}
-						category={product.category}
-					/>
+					<ProductCard key={product.id} product={product} />
 				))}
 		</div>
 	);
