@@ -4,5 +4,5 @@ export interface ButtonProps
 		ButtonHTMLAttributes<HTMLButtonElement>,
 		HTMLButtonElement
 	> {
-	icon: 'true' | 'false';
+	isAdded?: boolean;
 }

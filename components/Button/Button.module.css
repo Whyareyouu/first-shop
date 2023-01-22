@@ -8,7 +8,17 @@
 .icon:hover path {
 	fill: var(--white);
 }
+.added {
+	width: 76px;
+	height: 48px;
+}
 .button {
 	background: none;
 	border: none;
+}
+.disabled {
+	display: none;
+}
+.active {
+	display: block;
 }

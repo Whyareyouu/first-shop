@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Favorite } from '../Favorite/Favorite';
 import { Price } from '../Price/Price';
 import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export const ProductCard = ({
 	product,
@@ -14,7 +15,10 @@ export const ProductCard = ({
 	...props
 }: ProductCardProps): JSX.Element => {
 	const { image, title, price, category, id } = product;
-	const { addProduct } = useActions();
+	const { addProduct, addToFavorite, removeFavorite } = useActions();
+	const { cart, favorite } = useTypedSelector((state) => state);
+	const isAddedToCart = cart.some((product) => product.id === id);
+	const isAddedToFavorite = favorite.some((product) => product.id === id);
 	const IMAGE_PATH = image.replaceAll('https://fakestoreapi.com', '');
 	return (
 		<div className={cn(className, styles.card)} {...props}>
@@ -28,13 +32,19 @@ export const ProductCard = ({
 				/>
 				<h3 className={styles.title}>{title}</h3>
 				<div className={styles.category}>Category: {category}</div>
-				{/* <div className={styles.description}>{description}</div> */}
 			</Link>
 			<div className={styles.priceWrapper}>
 				<Price price={price} />
 				<div className={styles.icons}>
-					<Favorite icon='true' />
-					<Button icon='true' onClick={() => addProduct(product)} />
+					<Favorite
+						onClick={() => addToFavorite(product)}
+						isAdded={isAddedToFavorite}
+					/>
+					<Button
+						isAdded={isAddedToCart}
+						onClick={() => addProduct(product)}
+						disabled={isAddedToCart}
+					/>
 				</div>
 			</div>
 		</div>

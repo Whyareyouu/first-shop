@@ -9,3 +9,10 @@
 .icon:hover path {
 	fill: var(--white);
 }
+.active rect {
+	fill: var(--orange);
+	fill-opacity: 1;
+}
+.active path {
+	fill: var(--white);
+}
