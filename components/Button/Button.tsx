@@ -5,11 +5,16 @@ import styles from './Button.module.css';
 import cn from 'classnames';
 export const Button = ({
 	isAdded,
+	types = 'default',
 	className,
 	...props
 }: ButtonProps): JSX.Element => {
 	return (
-		<button className={cn(className, styles.button)} {...props}>
+		<button
+			className={cn(className, styles.button, {
+				[styles.disabled]: types === 'cart',
+			})}
+			{...props}>
 			<AddedIcon
 				className={cn(styles.disabled, styles.added, {
 					[styles.active]: isAdded,

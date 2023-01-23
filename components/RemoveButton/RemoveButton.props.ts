@@ -1,9 +1,9 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
-export interface ButtonProps
+export interface RemoveButtonProps
 	extends DetailedHTMLProps<
 		ButtonHTMLAttributes<HTMLButtonElement>,
 		HTMLButtonElement
 	> {
 	isAdded?: boolean;
-	types?: 'cart' | 'default';
+	types?: 'default' | 'cart';
 }

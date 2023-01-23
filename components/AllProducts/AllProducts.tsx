@@ -5,13 +5,19 @@ import cn from 'classnames';
 export const AllProducts = ({
 	products,
 	className,
+	type = 'default',
 	...props
 }: AllProductsProps): JSX.Element => {
 	return (
-		<div className={cn(styles.products, className)} {...props}>
+		<div
+			className={cn(className, {
+				[styles.products]: type === 'default',
+				[styles.cart]: type === 'cart',
+			})}
+			{...props}>
 			{products &&
 				products.map((product) => (
-					<ProductCard key={product.id} product={product} />
+					<ProductCard key={product.id} product={product} type={type} />
 				))}
 		</div>
 	);

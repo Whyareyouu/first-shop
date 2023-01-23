@@ -5,3 +5,4 @@ export * from './Price/Price';
 export * from './Input/Input';
 export * from './Bag/Bag';
 export * from './AllProducts/AllProducts';
+export * from './RemoveButton/RemoveButton';

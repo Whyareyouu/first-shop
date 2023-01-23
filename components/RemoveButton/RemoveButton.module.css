@@ -1,0 +1,10 @@
+.button {
+	background: none;
+	border: none;
+}
+.disabled {
+	display: none;
+}
+.active {
+	display: block;
+}

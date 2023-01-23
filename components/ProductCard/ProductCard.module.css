@@ -1,8 +1,10 @@
 .card {
 	display: grid;
 	grid-template-columns: 295px;
-	padding: 14px;
 	gap: 12px;
+}
+.defaultCard {
+	padding: 14px;
 	border: 1px solid #282828;
 	background-color: #222222;
 	border-radius: 15px;
@@ -10,11 +12,51 @@
 .card:hover {
 	background-color: #313131;
 }
+.cartProduct .link {
+	display: grid;
+	grid-template-columns: 224px 1fr auto;
+	justify-items: left;
+	align-items: flex-start;
+	gap: 20px;
+	grid-template-areas:
+		'image title .'
+		'. category .';
+}
+.cartProduct .priceWrapper {
+}
+.cartProduct .image {
+	grid-area: image;
+}
+.cartProduct .title {
+	grid-area: title;
+}
+.cartProduct .category {
+	grid-area: category;
+}
+.cartProduct .description {
+	align-items: flex-start;
+}
+.cartProduct .remove svg {
+	width: 48px;
+	height: 48px;
+}
+.remove {
+	cursor: pointer;
+}
+.remove:hover g {
+	fill: var(--white);
+}
 .link {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+.description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .title {
 	margin: 10px 0;
@@ -35,13 +77,6 @@
 	font-size: 18px;
 	line-height: 26px;
 	color: var(--orange);
-}
-.description {
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24px;
-	color: var(--gray);
-	margin-bottom: 72px;
 }
 .priceWrapper {
 	display: flex;

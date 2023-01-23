@@ -5,9 +5,8 @@ import styles from '../styles/cart.module.css';
 
 const Cart = ({}) => {
 	const { cart } = useTypedSelector((state) => state);
-	console.log(cart);
 	return cart.length > 0 ? (
-		<AllProducts products={cart} className={styles.cart} />
+		<AllProducts products={cart} className={styles.cart} type='cart' />
 	) : (
 		<h1 className={styles.cartEmpty}>The shopping cart is empty</h1>
 	);

@@ -8,20 +8,28 @@ import { Favorite } from '../Favorite/Favorite';
 import { Price } from '../Price/Price';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { RemoveButton } from '../RemoveButton/RemoveButton';
 
 export const ProductCard = ({
 	product,
+	type = 'default',
 	className,
 	...props
 }: ProductCardProps): JSX.Element => {
 	const { image, title, price, category, id } = product;
-	const { addProduct, addToFavorite, removeFavorite } = useActions();
+	const { addProduct, addToFavorite, removeProduct, removeFavorite } =
+		useActions();
 	const { cart, favorite } = useTypedSelector((state) => state);
 	const isAddedToCart = cart.some((product) => product.id === id);
 	const isAddedToFavorite = favorite.some((product) => product.id === id);
 	const IMAGE_PATH = image.replaceAll('https://fakestoreapi.com', '');
 	return (
-		<div className={cn(className, styles.card)} {...props}>
+		<div
+			className={cn(className, styles.defaultCard, {
+				[styles.card]: type === 'default',
+				[styles.cartProduct]: type === 'cart',
+			})}
+			{...props}>
 			<Link href={`/product/${id}`} className={styles.link}>
 				<Image
 					src={process.env.NEXT_PUBLIC_DOMAIN + IMAGE_PATH}
@@ -30,20 +38,33 @@ export const ProductCard = ({
 					height={236}
 					className={styles.image}
 				/>
-				<h3 className={styles.title}>{title}</h3>
-				<div className={styles.category}>Category: {category}</div>
+				<div className={styles.description}>
+					<h3 className={styles.title}>{title}</h3>
+					<div className={styles.category}>Category: {category}</div>
+				</div>
 			</Link>
 			<div className={styles.priceWrapper}>
 				<Price price={price} />
 				<div className={styles.icons}>
 					<Favorite
-						onClick={() => addToFavorite(product)}
+						onClick={() =>
+							!isAddedToFavorite
+								? addToFavorite(product)
+								: removeFavorite({ id: id })
+						}
 						isAdded={isAddedToFavorite}
 					/>
 					<Button
 						isAdded={isAddedToCart}
 						onClick={() => addProduct(product)}
 						disabled={isAddedToCart}
+						types={type}
+					/>
+					<RemoveButton
+						types={type}
+						isAdded={isAddedToCart}
+						className={styles.remove}
+						onClick={() => removeProduct({ id: id })}
 					/>
 				</div>
 			</div>
