@@ -9,6 +9,8 @@ import { Price } from '../Price/Price';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { RemoveButton } from '../RemoveButton/RemoveButton';
+import { Quantity } from '../Quantity/Quantity';
+import { useState } from 'react';
 
 export const ProductCard = ({
 	product,
@@ -17,8 +19,14 @@ export const ProductCard = ({
 	...props
 }: ProductCardProps): JSX.Element => {
 	const { image, title, price, category, id } = product;
-	const { addProduct, addToFavorite, removeProduct, removeFavorite } =
-		useActions();
+	const [quantity, setQuntity] = useState(0);
+	const {
+		addProduct,
+		addToFavorite,
+		removeProduct,
+		removeFavorite,
+		incrQuantity,
+	} = useActions();
 	const { cart, favorite } = useTypedSelector((state) => state);
 	const isAddedToCart = cart.some((product) => product.id === id);
 	const isAddedToFavorite = favorite.some((product) => product.id === id);
@@ -44,7 +52,7 @@ export const ProductCard = ({
 				</div>
 			</Link>
 			<div className={styles.priceWrapper}>
-				<Price price={price} />
+				<Price price={quantity > 1 ? +price * quantity + '' : price} />
 				<div className={styles.icons}>
 					<Favorite
 						onClick={() =>
@@ -60,6 +68,7 @@ export const ProductCard = ({
 						disabled={isAddedToCart}
 						types={type}
 					/>
+					<Quantity type={type} idElement={id} />
 					<RemoveButton
 						types={type}
 						isAdded={isAddedToCart}

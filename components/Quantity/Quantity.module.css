@@ -1,0 +1,37 @@
+.quantity {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+.count {
+	color: var(--white);
+	font-size: 16px;
+}
+.iconMinus {
+	max-width: 28px;
+	max-height: 28px;
+}
+.iconMinus,
+.icon {
+	fill: var(--orange);
+}
+.iconMinus:hover,
+.icon:hover {
+	fill: var(--white);
+}
+.icon {
+	max-width: 24px;
+	max-height: 24px;
+}
+.button {
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+.button:disabled .iconMinus {
+	fill: var(--gray);
+}
+.disabled {
+	display: none;
+}

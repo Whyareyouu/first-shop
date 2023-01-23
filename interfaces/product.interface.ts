@@ -10,5 +10,5 @@ export interface ProductsModel {
 	category: string;
 	image: string;
 	rating: Rating;
-	count?: number;
+	quantity?: number;
 }
