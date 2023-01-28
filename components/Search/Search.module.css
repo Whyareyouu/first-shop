@@ -1,0 +1,17 @@
+.search {
+	position: relative;
+}
+.input {
+	width: 100%;
+}
+.btn {
+	cursor: pointer;
+	background: none;
+	border: none;
+	position: absolute;
+	top: 14px;
+	right: 14px;
+}
+.icon path {
+	fill: var(--white);
+}
