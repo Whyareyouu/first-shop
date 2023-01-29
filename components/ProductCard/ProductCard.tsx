@@ -11,6 +11,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { RemoveButton } from '../RemoveButton/RemoveButton';
 import { Quantity } from '../Quantity/Quantity';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export const ProductCard = ({
 	product,

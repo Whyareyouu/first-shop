@@ -14,7 +14,7 @@ const Search = ({ products }: SearchProps): JSX.Element => {
 		const searchedProducts = products.filter((product) =>
 			product.title.toLowerCase().includes(value.toLowerCase())
 		);
-		return searchedProducts.length > 0 ? (
+		return searchedProducts.length > 0 && value ? (
 			<AllProducts products={searchedProducts} />
 		) : (
 			<div className={styles.cartEmpty}>

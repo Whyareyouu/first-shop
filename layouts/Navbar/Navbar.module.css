@@ -1,10 +1,16 @@
 .Navbar {
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: var(--light-gray);
+	font-size: 20px;
+}
+.list {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 	list-style: none;
-	color: var(--light-gray);
-	font-size: 20px;
 }
 .logo svg {
 	width: 300px;
@@ -27,4 +33,10 @@
 	width: 50px;
 	height: 42px;
 	fill: var(--white);
+}
+.account {
+	margin-top: 50px;
+	border-top: 2px solid var(--gray);
+	max-width: 90%;
+	padding-top: 20px;
 }
