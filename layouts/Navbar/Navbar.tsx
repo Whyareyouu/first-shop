@@ -6,7 +6,9 @@ export const Navbar = ({ ...props }): JSX.Element => {
 	return (
 		<nav {...props}>
 			<ul className={styles.Navbar}>
-				<LogoIcon className={styles.logo} />
+				<Link href='/'>
+					<LogoIcon className={styles.logo} />
+				</Link>
 				<span className={styles.title}>Categories</span>
 				{categories.map((category) => (
 					<li key={category._id}>

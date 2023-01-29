@@ -1,14 +1,23 @@
 .products {
-	/* display: flex;
+	display: flex;
 	flex-wrap: wrap;
+	max-width: 100%;
 	gap: 20px;
-	justify-content: center; */
-	display: grid;
-	gap: 20px;
-	grid-template-columns: repeat(4, 1fr);
+	justify-content: flex-start;
 }
 .cart {
 	display: flex;
+	max-width: 1360px;
 	flex-direction: column;
 	gap: 20px;
+}
+@media screen and (max-width: 1758px) {
+	.cart {
+		max-width: 1020px;
+	}
+}
+@media screen and (max-width: 1414px) {
+	.cart {
+		max-width: 680px;
+	}
 }

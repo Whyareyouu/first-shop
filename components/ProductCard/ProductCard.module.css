@@ -28,6 +28,7 @@
 	grid-area: image;
 }
 .cartProduct .title {
+	text-align: left;
 	grid-area: title;
 }
 .cartProduct .category {

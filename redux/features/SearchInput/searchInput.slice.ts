@@ -1,16 +1,20 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-const initialState: SearchInput[] = [];
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+const initialState: SearchInput = {
+	value: '',
+};
 export interface SearchInput {
-	name: string;
-	value: string | number;
+	value: string;
 }
 
 export const SearchInputSlice = createSlice({
-	name: "SearchInput",
+	name: 'SearchInput',
 	initialState,
 	reducers: {
-		onChange: (state, action: PayloadAction<SearchInput>) => {
-			state.push(action.payload);
+		onChangeValue: (state, action: PayloadAction<string>) => {
+			state.value = action.payload;
 		},
 	},
 });
+
+export const SearchInputReducer = SearchInputSlice.reducer;
+export const SearchInputActions = SearchInputSlice.actions;

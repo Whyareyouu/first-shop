@@ -1,10 +1,11 @@
 .header {
 	display: grid;
-	grid-template-columns: auto 48px minmax(48px, 100px) 60px 100px;
-	grid-template-areas: 'input favorite bag avatar .';
+	max-width: 1360px;
+	grid-template-columns: 1fr 48px auto;
+	grid-template-areas: 'input favorite bag .';
 	justify-items: center;
 	align-items: center;
-	gap: 20px;
+	gap: 10px;
 }
 .input {
 	grid-area: input;
@@ -16,10 +17,18 @@
 .bag {
 	grid-area: bag;
 }
-.avatar {
-	grid-area: avatar;
-	height: 44px;
-	width: 44px;
-	border-left: 1px solid var(--gray);
-	padding-left: 20px;
+@media screen and (max-width: 1758px) {
+	.header {
+		max-width: 1020px;
+	}
+}
+@media screen and (max-width: 1414px) {
+	.header {
+		max-width: 680px;
+	}
+}
+@media screen and (max-width: 1068px) {
+	.header {
+		max-width: 340px;
+	}
 }
