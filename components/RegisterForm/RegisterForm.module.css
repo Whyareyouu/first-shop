@@ -1,0 +1,42 @@
+.form {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'userinfo'
+		'username'
+		'email'
+		'password'
+		'signedin';
+	gap: 20px;
+}
+.userInfo {
+	grid-area: userinfo;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.email {
+	grid-area: email;
+	width: 100%;
+}
+.password {
+	grid-area: password;
+	width: 100%;
+}
+.signedin {
+	grid-area: signedin;
+}
+.username {
+	grid-area: username;
+	width: 100%;
+}
+.submit {
+	color: var(--white);
+	padding: 13px 20px;
+	background-color: var(--orange);
+	border: none;
+	border-radius: 50px;
+	font-weight: 700;
+	font-size: 20px;
+	margin-bottom: 5px;
+}

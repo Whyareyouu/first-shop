@@ -1,0 +1,11 @@
+.wrapper {
+	margin: 40px 0 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	color: var(--light-gray);
+}
+.title {
+	margin-bottom: 20px;
+}

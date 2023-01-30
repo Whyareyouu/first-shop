@@ -1,0 +1,14 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.submit {
+	color: var(--white);
+	padding: 13px 20px;
+	background-color: var(--orange);
+	border: none;
+	border-radius: 50px;
+	font-weight: 700;
+	font-size: 20px;
+}

@@ -9,3 +9,6 @@ export * from './RemoveButton/RemoveButton';
 export * from './Quantity/Quantity';
 export * from './Search/Search';
 export * from './Rating/Rating';
+export * from './LoginForm/LoginForm';
+export * from './ChecboxInput/ChecboxInput';
+export * from './RegisterForm/RegisterForm';
