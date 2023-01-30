@@ -7,5 +7,15 @@ export const Rating = ({
 	className,
 	...props
 }: RatingProps): JSX.Element => {
-	return <div className={cn(styles.rating, className)} {...props}></div>;
+	const { rate, count } = rating;
+	return (
+		<div className={cn(styles.rating, className)} {...props}>
+			<span className={styles.rate}>★★★★★</span>
+			<span
+				className={styles.ratingActive}
+				style={{ width: `${(rate / 100) * 2000}%` }}>
+				★★★★★
+			</span>
+		</div>
+	);
 };

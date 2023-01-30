@@ -2,7 +2,7 @@ import styles from './ProductPage.module.css';
 import cn from 'classnames';
 import { ProductPageProps } from './ProductPage.props';
 import Image from 'next/image';
-import { Button, Favorite, Price } from '../../components';
+import { Button, Favorite, Price, Rating } from '../../components';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 export const ProductPageComponent = ({
@@ -11,8 +11,7 @@ export const ProductPageComponent = ({
 	...props
 }: ProductPageProps): JSX.Element => {
 	const { image, title, price, description, rating, id } = product;
-	const { addProduct, addToFavorite, removeProduct, removeFavorite } =
-		useActions();
+	const { addProduct, addToFavorite, removeFavorite } = useActions();
 	const { cart, favorite } = useTypedSelector((state) => state);
 	const isAddedToCart = cart.some((product) => product.id === id);
 	const isAddedToFavorite = favorite.some((product) => product.id === id);
@@ -31,7 +30,7 @@ export const ProductPageComponent = ({
 			</div>
 			<div className={styles.cart}>
 				<h2>Add to cart</h2>
-				<span>Rating :{rating.rate}</span>
+				<Rating rating={rating} />
 				<Price price={price} />
 				<div className={styles.buttons}>
 					<Favorite

@@ -1,0 +1,12 @@
+.rating {
+	position: relative;
+	font-size: 36px;
+}
+.ratingActive {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: var(--orange);
+	z-index: 2;
+}
