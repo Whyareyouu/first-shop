@@ -49,6 +49,7 @@ export const ProductCard = ({
 			</Link>
 			<div className={styles.priceWrapper}>
 				<Price
+					className={styles.price}
 					price={quantity > 1 ? (+price * quantity).toFixed(2) + '' : price}
 				/>
 				<div className={styles.icons}>

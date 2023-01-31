@@ -12,3 +12,4 @@ export * from './Rating/Rating';
 export * from './LoginForm/LoginForm';
 export * from './ChecboxInput/ChecboxInput';
 export * from './RegisterForm/RegisterForm';
+export * from './BurgerNavBar/BurgerNavBar';

@@ -21,3 +21,13 @@
 		max-width: 680px;
 	}
 }
+@media screen and (max-width: 762px) {
+	.products {
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+	.cart {
+		max-width: 100%;
+	}
+}

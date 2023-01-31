@@ -22,8 +22,6 @@
 		'image title .'
 		'. category .';
 }
-.cartProduct .priceWrapper {
-}
 .cartProduct .image {
 	grid-area: image;
 }
@@ -60,7 +58,6 @@
 	align-items: center;
 }
 .title {
-	margin: 10px 0;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 27px;
@@ -87,4 +84,31 @@
 .icons {
 	display: flex;
 	gap: 12px;
+}
+@media screen and (max-width: 464px) {
+	.cartProduct .link {
+		grid-template-columns: 123px 1fr auto;
+		grid-template-areas:
+			'image title .'
+			'. category .';
+	}
+	.title {
+		font-size: 16px;
+		color: var(--light-gray);
+	}
+	.category {
+		font-size: 14px;
+	}
+	.cartProduct .image {
+		max-width: 124px;
+		max-height: 136px;
+	}
+	.cartProduct .price {
+		display: flex;
+		gap: 5px;
+		font-size: 16px;
+	}
+	.cartProduct .price span {
+		font-size: 16px;
+	}
 }

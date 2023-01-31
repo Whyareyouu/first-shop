@@ -1,6 +1,6 @@
 .header {
 	display: grid;
-	max-width: 1360px;
+	max-width: calc(95% - 48px);
 	grid-template-columns: 1fr 48px auto;
 	grid-template-areas: 'input favorite bag .';
 	justify-items: center;
@@ -30,5 +30,10 @@
 @media screen and (max-width: 1068px) {
 	.header {
 		max-width: 340px;
+	}
+}
+@media screen and (max-width: 762px) {
+	.header {
+		max-width: 100%;
 	}
 }

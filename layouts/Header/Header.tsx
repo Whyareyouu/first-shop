@@ -1,4 +1,4 @@
-import { Bag, Favorite, Input, Search } from '../../components';
+import { Bag, BurgerNavBar, Favorite, Search } from '../../components';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { HeaderProps } from './Header.props';
@@ -13,6 +13,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 			<Link href='/cart'>
 				<Bag className={styles.bag} />
 			</Link>
+			<BurgerNavBar />
 		</header>
 	);
 };
