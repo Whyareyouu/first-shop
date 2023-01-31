@@ -8,7 +8,7 @@ export const LoginForm = ({
 	className,
 	...props
 }: LoginFormProps): JSX.Element => {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit } = useForm<ILoginForm>();
 	const onSubmit = (data: ILoginForm) => {
 		console.log(data);
 	};
