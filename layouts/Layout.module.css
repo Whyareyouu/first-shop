@@ -32,7 +32,7 @@
 @media screen and (max-width: 762px) {
 	.wrapper {
 		display: grid;
-		grid-template-columns: minmax(10px, 100px) 1fr minmax(10px, 100px);
+		grid-template-columns: minmax(5px, 100px) 1fr minmax(5px, 100px);
 		grid-template-rows: auto 1fr auto;
 		grid-template-areas:
 			'. header .'

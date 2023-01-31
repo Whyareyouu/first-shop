@@ -25,12 +25,13 @@ export const ProductPageComponent = ({
 					alt={title}
 					width={500}
 					height={500}
+					className={styles.image}
 				/>
-				<p className={styles.description}>{description}</p>
 			</div>
+			<p className={styles.description}>{description}</p>
 			<div className={styles.cart}>
 				<h2>Add to cart</h2>
-				<Rating rating={rating} />
+				<Rating rating={rating} className={styles.rating} />
 				<Price price={price} />
 				<div className={styles.buttons}>
 					<Favorite
