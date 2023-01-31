@@ -1,6 +1,6 @@
 .form {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: auto;
 	grid-template-areas:
 		'userinfo'
 		'username'
@@ -19,20 +19,25 @@
 	display: flex;
 	flex-direction: column;
 }
+.inputForm {
+	display: flex;
+	flex-direction: column;
+}
+.inputForm input {
+	max-width: 100%;
+	width: 100%;
+}
 .email {
 	grid-area: email;
-	width: 100%;
 }
 .password {
 	grid-area: password;
-	width: 100%;
 }
 .signedin {
 	grid-area: signedin;
 }
 .username {
 	grid-area: username;
-	width: 100%;
 }
 .submit {
 	color: var(--white);
@@ -51,4 +56,32 @@
 .error {
 	display: inline-block;
 	color: var(--orange);
+}
+.success {
+	color: var(--green);
+	text-align: center;
+	font-size: 26px;
+}
+.link {
+	cursor: pointer;
+	color: var(--light-green);
+	text-decoration: underline;
+}
+@media screen and (max-width: 640px) {
+	.form {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.inputForm,
+	.user,
+	.user input,
+	.userInfo {
+		width: 100%;
+	}
+	.userInfo {
+		flex-direction: column;
+	}
 }

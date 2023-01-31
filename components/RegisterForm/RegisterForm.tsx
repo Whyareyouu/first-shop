@@ -6,6 +6,7 @@ import { IRegisterForm } from '../../interfaces/iRegisterForm.interface';
 import { ChecboxInput } from '../ChecboxInput/ChecboxInput';
 import axios from 'axios';
 import cn from 'classnames';
+import Link from 'next/link';
 
 export const RegisterForm = ({
 	className,
@@ -25,16 +26,16 @@ export const RegisterForm = ({
 			console.log('Error');
 		}
 	};
+	console.log(errors);
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.form} {...props}>
 			<div className={styles.userInfo}>
-				<div className={styles.user}>
+				<div className={cn(styles.user, styles.firstName)}>
 					<Input
 						placeholder='First name'
 						{...register('firstName', {
 							required: { value: true, message: 'This field is required' },
 						})}
-						className={styles.firstName}
 					/>
 					<span
 						className={cn(styles.disabled, {
@@ -43,13 +44,12 @@ export const RegisterForm = ({
 						{errors.firstName?.message}
 					</span>
 				</div>
-				<div className={styles.user}>
+				<div className={cn(styles.user, styles.secondName)}>
 					<Input
 						placeholder='Second name'
 						{...register('secondName', {
 							required: { value: true, message: 'This field is required' },
 						})}
-						className={styles.secondName}
 					/>
 					<span
 						className={cn(styles.disabled, {
@@ -59,13 +59,12 @@ export const RegisterForm = ({
 					</span>
 				</div>
 			</div>
-			<div>
+			<div className={cn(styles.username, styles.inputForm)}>
 				<Input
 					placeholder='Username'
 					{...register('username', {
 						required: { value: true, message: 'This field is required' },
 					})}
-					className={styles.username}
 				/>
 				<span
 					className={cn(styles.disabled, {
@@ -74,7 +73,7 @@ export const RegisterForm = ({
 					{errors.username?.message}
 				</span>
 			</div>
-			<div>
+			<div className={cn(styles.email, styles.inputForm)}>
 				<Input
 					placeholder='Email'
 					{...register('email', {
@@ -84,7 +83,6 @@ export const RegisterForm = ({
 							message: 'Invalid email address',
 						},
 					})}
-					className={styles.email}
 					type='email'
 				/>
 				<span
@@ -94,7 +92,7 @@ export const RegisterForm = ({
 					{errors.email?.message}
 				</span>
 			</div>
-			<div>
+			<div className={cn(styles.password, styles.inputForm)}>
 				<Input
 					placeholder='Password'
 					type='password'
@@ -113,7 +111,6 @@ export const RegisterForm = ({
 							message: 'The password must be no more than 30 characters',
 						},
 					})}
-					className={styles.password}
 				/>
 				<span
 					className={cn(styles.disabled, {
@@ -124,6 +121,14 @@ export const RegisterForm = ({
 			</div>
 			<ChecboxInput {...register('signedin')} className={styles.signedin} />
 			<button className={styles.submit}>Create account</button>
+			{Object.keys(errors).length === 0 && (
+				<div className={styles.success}>
+					Thank you for registering <br />
+					<Link href={'/'} className={styles.link}>
+						Go to the main page
+					</Link>
+				</div>
+			)}
 		</form>
 	);
 };
