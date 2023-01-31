@@ -7,26 +7,32 @@ import { ChecboxInput } from '../ChecboxInput/ChecboxInput';
 import axios from 'axios';
 import cn from 'classnames';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export const RegisterForm = ({
 	className,
 	...props
 }: RegisterFormProps): JSX.Element => {
+	const [success, setSuccess] = useState<boolean>(false);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm<IRegisterForm>({ mode: 'onBlur' });
 	const onSubmit = async (formData: IRegisterForm) => {
 		try {
 			const data = await axios.post<IRegisterForm>('/api/users', {
 				...formData,
 			});
+			if (data) {
+				setSuccess(true);
+				reset();
+			}
 		} catch {
 			console.log('Error');
 		}
 	};
-	console.log(errors);
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.form} {...props}>
 			<div className={styles.userInfo}>
@@ -121,7 +127,7 @@ export const RegisterForm = ({
 			</div>
 			<ChecboxInput {...register('signedin')} className={styles.signedin} />
 			<button className={styles.submit}>Create account</button>
-			{Object.keys(errors).length === 0 && (
+			{success && (
 				<div className={styles.success}>
 					Thank you for registering <br />
 					<Link href={'/'} className={styles.link}>
