@@ -1,6 +1,6 @@
 ## About app
 
-This is my first global application written in a framework next.js . I have been working on this application for 18 days.
+This is my first global application written in a framework next.js.
 
 ## Link to the application
 
