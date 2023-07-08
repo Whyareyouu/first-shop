@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import {GetServerSideProps, GetStaticPaths} from 'next';
 import axios from 'axios';
 import { ProductsModel } from '../../interfaces/product.interface';
 import { AllProducts } from '../../components';
@@ -8,22 +8,7 @@ const Category = ({ category }: CategoryProps): JSX.Element => {
 };
 export default withLayout(Category);
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const { data: categories } = await axios.get<string[]>(
-		'https://fakestoreapi.com/products/categories'
-	);
-	const paths = categories.map((category) => {
-		return {
-			params: { category: `${category}` },
-		};
-	});
-	return {
-		paths,
-		fallback: false,
-	};
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	if (!params) {
 		return {
 			notFound: true,

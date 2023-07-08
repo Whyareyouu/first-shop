@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GetStaticProps } from 'next';
+import {GetServerSideProps} from 'next';
 import Head from 'next/head';
 import { AllProducts, ProductCard } from '../components';
 import { ProductsModel } from '../interfaces/product.interface';
@@ -21,7 +21,7 @@ function Home({ products }: ProductProps): JSX.Element {
 	);
 }
 export default withLayout(Home);
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const { data: products } = await axios.get<ProductsModel[]>(
 		'https://fakestoreapi.com/products'
 	);
