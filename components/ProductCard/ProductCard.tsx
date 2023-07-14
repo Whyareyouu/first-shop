@@ -2,13 +2,13 @@ import {ProductCardProps} from './ProductCard.props';
 import cn from 'classnames';
 import styles from './ProductCard.module.css';
 import Image from 'next/image';
-import {Button} from '../Button/Button';
+import {Button} from '../../ui/Button/Button';
 import Link from 'next/link';
-import {Favorite} from '../Favorite/Favorite';
-import {Price} from '../Price/Price';
+import {Favorite} from '../../ui/Favorite/Favorite';
+import {Price} from '../../ui/Price/Price';
 import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
-import {RemoveButton} from '../RemoveButton/RemoveButton';
+import {RemoveButton} from '../../ui/RemoveButton/RemoveButton';
 import {Quantity} from '../Quantity/Quantity';
 import {useState} from 'react';
 
